@@ -1,0 +1,20 @@
+# No need to pin torch versions here since installed manually
+# Just list other dependencies
+
+# TensorBoard for training visualization
+tensorboard
+
+# Data handling and configuration
+PyYAML
+pillow
+
+# HuggingFace tools for tokenization etc.
+transformers
+datasets
+
+# Utilities
+tqdm
+scikit-image
+matplotlib
+multiprocess
+joblib

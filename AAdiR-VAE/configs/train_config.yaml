@@ -1,0 +1,23 @@
+training:
+    batch_size: 2  # Further reduced for memory
+    epochs: 100
+    learning_rate: 0.00001  # Lower learning rate for stability
+    kl_weight: 0.000001  # Reduced KL penalty
+    gradient_accumulation_steps: 16  # Increased to maintain effective batch size
+    save_interval: 5
+    resume_checkpoint: null  # Start fresh training with new architecture
+    use_amp: true  # Enable automatic mixed precision
+    grad_clip: 1.0  # Gradient clipping threshold
+    clear_cuda_cache: 100  # Clear CUDA cache every N batches
+    memory_efficient: true  # Enable memory efficient options
+
+model:
+  image_size: 256
+  text_embed_dim: 768
+  image_channels: 3
+  latent_dim: 256
+
+data:
+  image_size: 256
+  max_seq_length: 128
+  dataset_path: "data/images"

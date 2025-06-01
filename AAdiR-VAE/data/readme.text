@@ -1,0 +1,5 @@
+Add all images in images folder with caption and script automaticly load all data and start traing.
+
+if possibe use anaconda for venv setup happy traing Team KetiveeAI
+
+Any type of img that you want wor traning keep in mind yopu training a VAE model.
