@@ -7,11 +7,6 @@
 # For high-quality/3D/video model training, see train.py (under development).
 # =============================================================
 
-# This script is designed to train a lightweight version of the AADI model using a subset of the dataset.
-# This code is part of the AADI project, which is licensed under the MIT License.
-# This code is provided for educational purposes only.
-# Please ensure you have the necessary libraries installed:
-# If you have any issues, please contact the author. A
 
 import sys
 import os
@@ -24,6 +19,7 @@ from torch.utils.tensorboard import SummaryWriter
 import random
 import time
 import logging
+import io
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -32,7 +28,15 @@ from scripts.dataloader import CustomDataset
 from utils.shared_state import shared_data
 from scripts.utils.checkpoint_utils import save_checkpoint, load_checkpoint
 
+def configure_unicode():
+    if sys.stdout.encoding != 'UTF-8':
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    if sys.stderr.encoding != 'UTF-8':
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
 # Logging setup
+configure_unicode()
+
 logging.basicConfig(
     filename='logs/train_lite.log',
     filemode='a',
